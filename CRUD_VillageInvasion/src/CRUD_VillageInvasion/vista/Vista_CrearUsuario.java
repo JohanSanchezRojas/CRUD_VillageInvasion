@@ -32,7 +32,7 @@ public class Vista_CrearUsuario extends JFrame {
 		setVisible(true);
 	}
 	
-	private void InicializarComp(){
+	public void InicializarComp(){
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

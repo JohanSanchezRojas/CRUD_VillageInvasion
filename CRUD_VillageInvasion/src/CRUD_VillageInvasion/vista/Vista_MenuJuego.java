@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Vista_MenuJuego extends JFrame {
 
@@ -15,13 +17,14 @@ public class Vista_MenuJuego extends JFrame {
 	private JButton btnRead;
 	private JButton btnUpdate;;
 	private JButton btnDelete;
-	
+	private JButton btnConfiguracion;
+	private JButton btnSalir;
 	
 	
 	
 	public Vista_MenuJuego() {
 		
-		inicializarComp();
+		InicializarComp();
 		setSize(500, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -30,7 +33,7 @@ public class Vista_MenuJuego extends JFrame {
 		setVisible(true);
 	}
 	
-	public void inicializarComp(){
+	public void InicializarComp(){
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -38,20 +41,28 @@ public class Vista_MenuJuego extends JFrame {
 		contentPane.setLayout(null);
 		
 		btnCreate = new JButton("Crear Nuevo Usuario");
-		btnCreate.setBounds(108, 125, 191, 23);
+		btnCreate.setBounds(129, 149, 191, 23);
 		contentPane.add(btnCreate);
 		
-		JButton btnRead = new JButton("Mostrar Datos de Usuario");
-		btnRead.setBounds(108, 159, 191, 23);
+		btnRead = new JButton("Mostrar Datos de Usuario");
+		btnRead.setBounds(129, 183, 191, 23);
 		contentPane.add(btnRead);
 		
-		JButton btnUpdate = new JButton("Actulizar los Datos de Usuario");
-		btnUpdate.setBounds(108, 193, 191, 23);
+		btnUpdate = new JButton("Actulizar los Datos de Usuario");
+		btnUpdate.setBounds(129, 217, 191, 23);
 		contentPane.add(btnUpdate);
 		
-		JButton btnDelete = new JButton("Eliminar Datos de Usuario");
-		btnDelete.setBounds(108, 227, 191, 23);
+		btnDelete = new JButton("Eliminar Datos de Usuario");
+		btnDelete.setBounds(129, 252, 191, 23);
 		contentPane.add(btnDelete);
+		
+		btnConfiguracion = new JButton("Configuracion");
+		btnConfiguracion.setBounds(10, 252, 105, 23);
+		contentPane.add(btnConfiguracion);
+		
+		btnSalir = new JButton("Salir");
+		btnSalir.setBounds(335, 252, 105, 23);
+		contentPane.add(btnSalir);
 	}
 
 	public JPanel getContentPane() {
@@ -93,6 +104,24 @@ public class Vista_MenuJuego extends JFrame {
 	public void setBtnDelete(JButton btnDelete) {
 		this.btnDelete = btnDelete;
 	}
+
+	public JButton getBtnConfiguracion() {
+		return btnConfiguracion;
+	}
+
+	public void setBtnConfiguracion(JButton btnConfiguracion) {
+		this.btnConfiguracion = btnConfiguracion;
+	}
+
+	public JButton getBtnSalir() {
+		return btnSalir;
+	}
+
+	public void setBtnSalir(JButton btnSalir) {
+		this.btnSalir = btnSalir;
+	}
+
+	
 	
 	
 	
