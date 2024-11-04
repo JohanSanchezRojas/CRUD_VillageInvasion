@@ -1,5 +1,4 @@
 package CRUD_VillageInvasion.vista;
-//Andrew Mora M
 
 import java.awt.EventQueue;
 
@@ -7,128 +6,55 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import java.awt.Dialog.ModalExclusionType;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 public class Vista_MenuJuego extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JButton btnCreate;
-	private JButton btnRead;
-	private JButton btnUpdate;;
-	private JButton btnDelete;
-	private JButton btnConfiguracion;
-	private JButton btnSalir;
+	private JMenuItem jM_InsertarUsuario;
 	
 	public Vista_MenuJuego() {
 		initComponents();
+		setTitle("VILLAGE INVASION");
 		setSize(500, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setBounds(100, 100, 450, 300);
-		setVisible(true);
-	}
-	
-	public void initComponents(){
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
-		btnCreate = new JButton("Crear Nuevo Usuario");
-		btnCreate.setBounds(129, 149, 191, 23);
-		contentPane.add(btnCreate);
 		
-		btnRead = new JButton("Mostrar Datos de Usuario");
-		btnRead.setBounds(129, 183, 191, 23);
-		contentPane.add(btnRead);
 		
-		btnUpdate = new JButton("Actulizar los Datos de Usuario");
-		btnUpdate.setBounds(129, 217, 191, 23);
-		contentPane.add(btnUpdate);
+		this.setVisible(true);
+	}
+
+	private void initComponents() {
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
 		
-		btnDelete = new JButton("Eliminar Datos de Usuario");
-		btnDelete.setBounds(129, 252, 191, 23);
-		contentPane.add(btnDelete);
+		JMenu mnMenuJuego = new JMenu("Menu Juego Village Invasion");
+		menuBar.add(mnMenuJuego);
 		
-		btnConfiguracion = new JButton("Configuracion");
-		btnConfiguracion.setBounds(10, 252, 105, 23);
-		contentPane.add(btnConfiguracion);
+		jM_InsertarUsuario = new JMenuItem("Insertar usuario");
+		mnMenuJuego.add(jM_InsertarUsuario);
 		
-		btnSalir = new JButton("Salir");
-		btnSalir.setBounds(335, 252, 105, 23);
-		contentPane.add(btnSalir);
+		JMenuItem jM_MostrarUsuario = new JMenuItem("Mostrar usuario");
+		mnMenuJuego.add(jM_MostrarUsuario);
+		
+		JMenuItem jM_ActualizarUsuario = new JMenuItem("Actualizar usuario");
+		mnMenuJuego.add(jM_ActualizarUsuario);
+		
+		JMenuItem jM_EliminarUsuario = new JMenuItem("Eliminar usuario");
+		mnMenuJuego.add(jM_EliminarUsuario);
 	}
 
-	public JPanel getContentPane() {
-		return contentPane;
+	public JMenuItem getjM_AgregarUsuario() {
+		return jM_InsertarUsuario;
 	}
 
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
+	public void setjM_AgregarUsuario(JMenuItem jM_AgregarUsuario) {
+		this.jM_InsertarUsuario = jM_AgregarUsuario;
 	}
 
-	public JButton getBtnCreate() {
-		return btnCreate;
-	}
-
-	public void setBtnCreate(JButton btnCreate) {
-		this.btnCreate = btnCreate;
-	}
-
-	public JButton getBtnRead() {
-		return btnRead;
-	}
-
-	public void setBtnRead(JButton btnRead) {
-		this.btnRead = btnRead;
-	}
-
-	public JButton getBtnUpdate() {
-		return btnUpdate;
-	}
-
-	public void setBtnUpdate(JButton btnUpdate) {
-		this.btnUpdate = btnUpdate;
-	}
-
-	public JButton getBtnDelete() {
-		return btnDelete;
-	}
-
-	public void setBtnDelete(JButton btnDelete) {
-		this.btnDelete = btnDelete;
-	}
-
-	public JButton getBtnConfiguracion() {
-		return btnConfiguracion;
-	}
-
-	public void setBtnConfiguracion(JButton btnConfiguracion) {
-		this.btnConfiguracion = btnConfiguracion;
-	}
-
-	public JButton getBtnSalir() {
-		return btnSalir;
-	}
-
-	public void setBtnSalir(JButton btnSalir) {
-		this.btnSalir = btnSalir;
-	}
-
-	
-	
-	
 	
 }
-//w
-//{}
-//>
-//<
-//*
-//&&
-//||
-//[]
-//-

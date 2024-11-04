@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
+import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 
 /**
  * Johan David Sánchez Rojas C17305
@@ -18,12 +19,12 @@ public class Controlador_MenuJuego implements ActionListener{
 		this.modelo = modelo;
 		this.vista = vista;
 		
-		vista.getBtnCreate().addActionListener(null);
+		vista.getjM_AgregarUsuario().addActionListener(this);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == vista.getBtnCreate()) {
+		if (e.getSource() == vista.getjM_AgregarUsuario()) {
 			System.out.println("HOLA");
 		}
 		
