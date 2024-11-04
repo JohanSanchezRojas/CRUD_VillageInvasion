@@ -4,7 +4,6 @@ import CRUD_VillageInvasion.Principal;
 import CRUD_VillageInvasion.modelo.Usuario;
 import CRUD_VillageInvasion.modelo.DAO.IDAO_Usuario;
 import CRUD_VillageInvasion.modelo.dataset.ListaUsuarios;
-
 /**
  * Johan David Sánchez Rojas C17305
  */
@@ -52,6 +51,9 @@ public class DAO_Usuario implements IDAO_Usuario {
 		return null;
 	}
 
-	
-
+	public void cargarDatosPrueba(){ // se agregar datos de prueba
+        insertar(new Usuario("Pepe", "1234"));
+        insertar(new Usuario("Robertin", "1234"));
+        insertar(new Usuario("Bartolo", "1234"));
+	}
 }

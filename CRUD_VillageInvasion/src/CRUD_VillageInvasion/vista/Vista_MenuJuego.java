@@ -28,7 +28,7 @@ public class Vista_MenuJuego extends JFrame {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setBounds(100, 100, 450, 300);
-		this.setVisible(true);
+		setVisible(true);
 	}
 	
 	public void initComponents(){
