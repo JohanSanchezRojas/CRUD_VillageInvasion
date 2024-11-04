@@ -21,21 +21,17 @@ public class Vista_MenuJuego extends JFrame {
 	private JButton btnConfiguracion;
 	private JButton btnSalir;
 	
-	
-	
 	public Vista_MenuJuego() {
-		
-		InicializarComp();
+		initComponents();
 		setSize(500, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setBounds(100, 100, 450, 300);
-		setVisible(true);
+		this.setVisible(true);
 	}
 	
-	public void InicializarComp(){
-		
+	public void initComponents(){
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
