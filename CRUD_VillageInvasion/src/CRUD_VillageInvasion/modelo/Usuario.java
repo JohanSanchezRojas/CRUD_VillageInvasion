@@ -7,16 +7,16 @@ package CRUD_VillageInvasion.modelo;
 public class Usuario {
 	private String nombre;
 	private String contraseña;
-	private int puntaje;
 	private int nivel;
-	private int id;
+	private int puntaje;
+	private static int id = 0;
 
 	public Usuario(String nombre, String contraseña) {
-		super();
 		this.nombre = nombre;
 		this.contraseña = contraseña;
+		this.nivel = 0;
 		this.puntaje = 0;
-
+		id++;
 	}
 
 	public String getNombre() {
@@ -35,6 +35,14 @@ public class Usuario {
 		this.contraseña = contraseña;
 	}
 
+	public int getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+	
 	public int getPuntaje() {
 		return puntaje;
 	}
@@ -43,20 +51,8 @@ public class Usuario {
 		this.puntaje = puntaje;
 	}
 
-	public int getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
-
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	@Override

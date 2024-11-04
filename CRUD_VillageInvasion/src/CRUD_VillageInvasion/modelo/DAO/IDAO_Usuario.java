@@ -10,7 +10,11 @@ public interface IDAO_Usuario {
 
 	public abstract Usuario generarUsuario();
 
-	public abstract boolean actualizar(Usuario u);
+	public abstract boolean actualizarPorNombre(String nombre);
+	
+	public abstract boolean actualizarPorNivel(int nivel);
+
+	public abstract boolean actualizarPorPuntaje(int puntaje);
 
 	public abstract boolean eliminar(int id);
 

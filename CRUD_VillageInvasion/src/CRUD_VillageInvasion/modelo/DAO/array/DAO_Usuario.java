@@ -24,8 +24,19 @@ public class DAO_Usuario implements IDAO_Usuario {
 	}
 
 	@Override
-	public boolean actualizar(Usuario u) {
+	public boolean actualizarPorNombre(String nombre) {
+		return true;
+	}
+	
+	@Override
+	public boolean actualizarPorNivel(int nivel) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
+	@Override
+	public boolean actualizarPorPuntaje(int puntaje) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -40,5 +51,7 @@ public class DAO_Usuario implements IDAO_Usuario {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }

@@ -6,62 +6,82 @@ import CRUD_VillageInvasion.modelo.Usuario;
  * Joshua Chacón Alvarez C4E105
  */
 public class ListaUsuarios {
-	private Usuario usuarios[];
-	private int contador;
+	private Usuario[] listaUsuarios;
+	private int contarUsuarios;
 	public static final int TAMANO = 50;
 
 	public ListaUsuarios() {
-		usuarios = new Usuario[TAMANO];
-		contador = 0;
+		listaUsuarios = new Usuario[TAMANO];
+		contarUsuarios = 0;
 	}
+	
+	public ListaUsuarios(int tamano) {
+        listaUsuarios = new Usuario[tamano];
+        contarUsuarios = 0;
+    }
 
-	public void agregar(Usuario u) {
-		int asignadorId = 0;
-		if (contador >= usuarios.length) {
-			crecer();
-			int posicion = contador - 1;
-			usuarios[posicion].setId(asignadorId++);
-			usuarios[contador++] = u;
-
-		} else {
-			if (u != null) {
-				int posicion = contador - 1;
-				usuarios[posicion].setId(asignadorId++);
-				usuarios[contador++] = u;
-
+	public void agregar(Usuario usuario) {
+		
+		if (usuario != null) {
+			if (contarUsuarios == 0) {
+				listaUsuarios[0] = usuario;
+			} else if (contarUsuarios >= listaUsuarios.length) {
+				crecer();
+				listaUsuarios[contarUsuarios + 1] = usuario;
+			} else {
+				listaUsuarios[contarUsuarios + 1] = usuario;
 			}
-		}
+			contarUsuarios++;
+		} 
+		
+		//REVISAR
+		
+//		int asignadorId = 0;
+//		
+//		if (contarUsuarios >= listaUsuarios.length) {
+//			crecer();
+//			//int posicion = contador - 1;
+//			//usuarios[posicion].setId(asignadorId++); 
+//			listaUsuarios[contarUsuarios++] = usuario;
+//			contarUsuarios++;
+//		} else {
+//			if (usuario != null) {
+//				//int posicion = contador - 1;
+//				//usuarios[posicion].setId(asignadorId++); 
+//				listaUsuarios[contarUsuarios++] = usuario;
+//				contarUsuarios++;
+//			}
+//		}
 	}
 
 	public void crecer() {
-		if (contador >= usuarios.length) {
-			Usuario usuariosTemp[] = new Usuario[usuarios.length * 2];
-			for (int i = 0; i < usuarios.length; i++) {
-				if (usuarios[i] != null) {
-					usuariosTemp[i] = usuarios[i];
-
+		if (contarUsuarios >= listaUsuarios.length) {
+			Usuario usuariosTemp[] = new Usuario[listaUsuarios.length * 2];
+			
+			for (int i = 0; i < listaUsuarios.length; i++) {
+				if (listaUsuarios[i] != null) {
+					usuariosTemp[i] = listaUsuarios[i];
 				}
 			}
-			usuarios = usuariosTemp;
-
+			
+			listaUsuarios = usuariosTemp;
 		}
 	}
 
 	public Usuario getUsuario(String nombre) {
 		int temp = 0;
 		boolean ciclo = true;
+		
 		while (ciclo) {
-			if (usuarios[temp].getNombre() == nombre) {
+			if (listaUsuarios[temp].getNombre() == nombre) {
 				ciclo = false;
-
 			} else {
 				temp += 1;
-
 			}
 		}
-		Usuario u = usuarios[temp];
+		
+		Usuario u = listaUsuarios[temp];
 		return u;
-
 	}
 
 	public void eliminar(String nombre) {
@@ -69,43 +89,37 @@ public class ListaUsuarios {
 		boolean ciclo = true;
 
 		while (ciclo) {
-			if (usuarios[temp].getNombre() == nombre) {
-				usuarios[temp] = null;
+			if (listaUsuarios[temp].getNombre() == nombre) {
+				listaUsuarios[temp] = null;
 				ciclo = false;
-
 			} else {
 				temp += 1;
-
 			}
 		}
+		
 		corrimiento();
-
 	}
 
 	public void corrimiento() {
-		Usuario uTemp[] = new Usuario[usuarios.length];
+		Usuario uTemp[] = new Usuario[listaUsuarios.length];
 		int intTemporal = 0;
 
-		for (int i = 0; i < usuarios.length; i++) {
-			if (usuarios[i] != null) {
-				uTemp[intTemporal++] = usuarios[i];
-
+		for (int i = 0; i < listaUsuarios.length; i++) {
+			if (listaUsuarios[i] != null) {
+				uTemp[intTemporal++] = listaUsuarios[i];
 			}
-
 		}
-
-		usuarios = uTemp;
-
+		
+		listaUsuarios = uTemp;
 	}
 
 	public String imprimir() {
 		String hilera = "";
 
-		for (int i = 0; i < usuarios.length; i++) {
-			hilera = usuarios[i].imprimir();
+		for (int i = 0; i < listaUsuarios.length; i++) {
+			hilera = listaUsuarios[i].imprimir();
 		}
 
 		return hilera;
-
 	}
 }
