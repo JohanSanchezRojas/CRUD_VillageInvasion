@@ -25,15 +25,32 @@ public class Controlador_MenuJuego implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vista.getjM_AgregarUsuario()) {
-			System.out.println("HOLA");
+			System.out.println("Agregar Usuario");
 		}
 		
+		if (e.getSource() == vista.getjM_MostrarUsuario()) {
+			System.out.println("Mostrar Usuario");
+		}
 		
+		if (e.getSource() == vista.getjM_ActualizarUsuario()) {
+			System.out.println("Actualizar Usuario");
+		}
 		
-//		if (e.getSource() == vista.getjM_Mostrar()){
-//        	vistaM = new Vista_Mostrar(vista);            
-//        	controladorM = new Controlador_Mostrar(vistaM, modelo);
-//        }
+		if (e.getSource() == vista.getjM_EliminarUsuario()) {
+			System.out.println("Eliminar Usuario");
+		}
+		
+		if (e.getSource() == vista.getjM_Salir()) {
+			System.out.println("Salir");
+		}
+		
+		if (e.getSource() == vista.getBtnConfiguracion()) {
+			System.out.println("Configuracion");
+		}
+		
+		if (e.getSource() == vista.getBtnJugar()) {
+			System.out.println("Jugar");
+		}
 	}
 
 }
