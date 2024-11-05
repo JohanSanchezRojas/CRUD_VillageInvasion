@@ -19,6 +19,14 @@ public class ListaUsuarios {
         listaUsuarios = new Usuario[tamano];
         contarUsuarios = 0;
     }
+	
+	public Usuario[] getListaUsuarios() {
+		return listaUsuarios;
+	}
+
+	public void setListaUsuarios(Usuario[] listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
 
 	public void agregar(Usuario usuario) {
 		

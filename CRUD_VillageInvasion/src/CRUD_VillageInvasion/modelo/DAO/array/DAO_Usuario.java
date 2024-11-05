@@ -50,6 +50,14 @@ public class DAO_Usuario implements IDAO_Usuario {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public ListaUsuarios getLista() {
+		return lista;
+	}
+
+	public void setLista(ListaUsuarios lista) {
+		this.lista = lista;
+	}
 
 	public void cargarDatosPrueba(){ // se agregar datos de prueba
         insertar(new Usuario("Pepe", "1234"));

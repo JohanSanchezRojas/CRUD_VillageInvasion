@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
+import CRUD_VillageInvasion.vista.Vista_ActualizarUsuario;
+import CRUD_VillageInvasion.vista.Vista_InsertarUsuario;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
+import CRUD_VillageInvasion.vista.Vista_InsertarUsuario;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 
 /**
@@ -14,17 +17,28 @@ public class Controlador_MenuJuego implements ActionListener{
 	private DAO_Usuario modelo;
 	
 	private Vista_MenuJuego vista;
+	private Vista_InsertarUsuario vistaI;
+	
+	private Controlador_InsertarUsuario controladorI;
 	
 	public Controlador_MenuJuego(DAO_Usuario modelo, Vista_MenuJuego vista) {
 		this.modelo = modelo;
 		this.vista = vista;
 		
 		vista.getjM_AgregarUsuario().addActionListener(this);
+		vista.getjM_MostrarUsuario().addActionListener(this);
+		vista.getjM_ActualizarUsuario().addActionListener(this);
+		vista.getjM_EliminarUsuario().addActionListener(this);
+		vista.getjM_Salir().addActionListener(this);
+		vista.getBtnConfiguracion().addActionListener(this);
+		vista.getBtnJugar().addActionListener(this);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vista.getjM_AgregarUsuario()) {
+			vistaI = new Vista_InsertarUsuario(vista);
+			controladorI = new Controlador_InsertarUsuario(vistaI, modelo);
 			System.out.println("Agregar Usuario");
 		}
 		
@@ -41,7 +55,7 @@ public class Controlador_MenuJuego implements ActionListener{
 		}
 		
 		if (e.getSource() == vista.getjM_Salir()) {
-			System.out.println("Salir");
+			System.exit(0);
 		}
 		
 		if (e.getSource() == vista.getBtnConfiguracion()) {
