@@ -14,6 +14,8 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
+import java.awt.Scrollbar;
+import javax.swing.JScrollPane;
 
 public class Vista_MostrarUsuario extends JDialog {
 	private JRadioButton rdbtnBuscarNombre;
@@ -22,8 +24,8 @@ public class Vista_MostrarUsuario extends JDialog {
 	private JButton btnBuscar;
 	private JButton btnMostrarUsuario;
 	private JButton btnCancelar;
-	private JTextArea tA_Resultado;
 	private JTextField tfDato;
+	private JScrollPane sP_Resultado;
 
 	public Vista_MostrarUsuario(JFrame parent) {
 		super(parent);
@@ -33,7 +35,7 @@ public class Vista_MostrarUsuario extends JDialog {
 		setResizable(false);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
-
+		
 		this.setVisible(true);
 	}
 
@@ -49,12 +51,16 @@ public class Vista_MostrarUsuario extends JDialog {
 		lblTitulo2.setBounds(45, 136, 323, 13);
 		getContentPane().add(lblTitulo2);
 		
+		sP_Resultado = new JScrollPane();
+		sP_Resultado.setBounds(105, 154, 173, 29);
+		getContentPane().add(sP_Resultado);
+		
 		rdbtnBuscarNombre = new JRadioButton("Nombre");
 		rdbtnBuscarNombre.setBounds(97, 78, 61, 21);
 		getContentPane().add(rdbtnBuscarNombre);
 
 		rdbtnBuscarNivel = new JRadioButton("Nivel");
-		rdbtnBuscarNivel.setBounds(171, 78, 47, 21);
+		rdbtnBuscarNivel.setBounds(170, 78, 47, 21);
 		getContentPane().add(rdbtnBuscarNivel);
 
 		rdbtnPuntaje = new JRadioButton("Puntaje");
@@ -73,15 +79,73 @@ public class Vista_MostrarUsuario extends JDialog {
 		btnCancelar.setBounds(230, 192, 85, 21);
 		getContentPane().add(btnCancelar);
 		
-		tA_Resultado = new JTextArea();
-		tA_Resultado.setBounds(88, 153, 215, 29);
-		getContentPane().add(tA_Resultado);
-		
 		tfDato = new JTextField();
 		tfDato.setBounds(87, 48, 215, 24);
 		getContentPane().add(tfDato);
 		tfDato.setColumns(10);
 	}
-	
-	
+
+	public JRadioButton getRdbtnBuscarNombre() {
+		return rdbtnBuscarNombre;
+	}
+
+	public void setRdbtnBuscarNombre(JRadioButton rdbtnBuscarNombre) {
+		this.rdbtnBuscarNombre = rdbtnBuscarNombre;
+	}
+
+	public JRadioButton getRdbtnBuscarNivel() {
+		return rdbtnBuscarNivel;
+	}
+
+	public void setRdbtnBuscarNivel(JRadioButton rdbtnBuscarNivel) {
+		this.rdbtnBuscarNivel = rdbtnBuscarNivel;
+	}
+
+	public JRadioButton getRdbtnPuntaje() {
+		return rdbtnPuntaje;
+	}
+
+	public void setRdbtnPuntaje(JRadioButton rdbtnPuntaje) {
+		this.rdbtnPuntaje = rdbtnPuntaje;
+	}
+
+	public JButton getBtnBuscar() {
+		return btnBuscar;
+	}
+
+	public void setBtnBuscar(JButton btnBuscar) {
+		this.btnBuscar = btnBuscar;
+	}
+
+	public JButton getBtnMostrarUsuario() {
+		return btnMostrarUsuario;
+	}
+
+	public void setBtnMostrarUsuario(JButton btnMostrarUsuario) {
+		this.btnMostrarUsuario = btnMostrarUsuario;
+	}
+
+	public JButton getBtnCancelar() {
+		return btnCancelar;
+	}
+
+	public void setBtnCancelar(JButton btnCancelar) {
+		this.btnCancelar = btnCancelar;
+	}
+
+	public JTextField getTfDato() {
+		return tfDato;
+	}
+
+	public void setTfDato(JTextField tfDato) {
+		this.tfDato = tfDato;
+	}
+
+	public JScrollPane getsP_Resultado() {
+		return sP_Resultado;
+	}
+
+	public void setsP_Resultado(JScrollPane sP_Resultado) {
+		this.sP_Resultado = sP_Resultado;
+	}
 }

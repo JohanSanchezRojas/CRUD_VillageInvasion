@@ -21,22 +21,25 @@ public class DAO_Usuario implements IDAO_Usuario {
 		// EN PROCESO Xd no sé si este metodo deberia existir despues lo hablamos
 		return null;
 	}
-
-	@Override
-	public boolean actualizarPorNombre(String nombre) {
-		return true;
-	}
 	
 	@Override
-	public boolean actualizarPorNivel(int nivel) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public Usuario buscarUsuario(String tipo, String dato) {
+		
+		switch (tipo) {
+		case TIPO_NOMBRE:
+			
+			break;
 
-	@Override
-	public boolean actualizarPorPuntaje(int puntaje) {
-		// TODO Auto-generated method stub
-		return false;
+		case TIPO_NIVEL:
+			break;
+			
+		case TIPO_PUNTAJE:
+			break;
+			
+		default:
+			break;
+		}
+		return null;
 	}
 
 	@Override
@@ -45,11 +48,6 @@ public class DAO_Usuario implements IDAO_Usuario {
 		return false;
 	}
 
-	@Override
-	public Usuario buscar(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public ListaUsuarios getLista() {
 		return lista;
