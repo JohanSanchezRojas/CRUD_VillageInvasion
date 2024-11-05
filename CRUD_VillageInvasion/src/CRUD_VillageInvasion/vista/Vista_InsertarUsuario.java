@@ -10,12 +10,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 
 public class Vista_InsertarUsuario extends JDialog {
 	private JTextField tfNombre;
-	private JTextField tfContrasena;
 	private JButton btnAceptar;
 	private JButton btnCancelar;
+	private JPasswordField pF_Contrasena;
 
 	public Vista_InsertarUsuario(JFrame parent) {
 		super(parent);
@@ -24,13 +25,12 @@ public class Vista_InsertarUsuario extends JDialog {
 		setSize(424, 250);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		
+		getContentPane().setLayout(null);
+
 		this.setVisible(true);
 	}
 
 	private void initComponents() {
-		getContentPane().setLayout(null);
-		
 		JLabel lblNombre = new JLabel("Ingrese el nombre de usuario:");
 		lblNombre.setBounds(83, 20, 218, 14);
 		getContentPane().add(lblNombre);
@@ -44,10 +44,9 @@ public class Vista_InsertarUsuario extends JDialog {
 		getContentPane().add(tfNombre);
 		tfNombre.setColumns(10);
 		
-		tfContrasena = new JTextField();
-		tfContrasena.setBounds(83, 101, 218, 33);
-		getContentPane().add(tfContrasena);
-		tfContrasena.setColumns(10);
+		pF_Contrasena = new JPasswordField();
+		pF_Contrasena.setBounds(83, 108, 218, 33);
+		getContentPane().add(pF_Contrasena);
 		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(83, 163, 89, 23);
@@ -66,12 +65,12 @@ public class Vista_InsertarUsuario extends JDialog {
 		this.tfNombre = tfNombre;
 	}
 
-	public JTextField getTfContrasena() {
-		return tfContrasena;
+	public JPasswordField getpF_Contrasena() {
+		return pF_Contrasena;
 	}
 
-	public void setTfContrasena(JTextField tfContrasena) {
-		this.tfContrasena = tfContrasena;
+	public void setpF_Contrasena(JPasswordField pF_Contrasena) {
+		this.pF_Contrasena = pF_Contrasena;
 	}
 
 	public JButton getBtnAceptar() {
@@ -92,6 +91,6 @@ public class Vista_InsertarUsuario extends JDialog {
 	
 	public void borrarTF() {
 		tfNombre.setText("");
-		tfContrasena.setText("");
+		pF_Contrasena.setText("");
 	}
 }

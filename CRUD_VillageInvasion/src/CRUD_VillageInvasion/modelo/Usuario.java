@@ -6,17 +6,19 @@ package CRUD_VillageInvasion.modelo;
 
 public class Usuario {
 	private String nombre;
-	private String contraseña;
+	private String contrasena;
 	private int nivel;
 	private int puntaje;
-	private static int id = 0;
+	private int id;
+	private static int sumaId = 0;
 
 	public Usuario(String nombre, String contraseña) {
 		this.nombre = nombre;
-		this.contraseña = contraseña;
+		this.contrasena = contraseña;
 		this.nivel = 0;
 		this.puntaje = 0;
-		id++;
+		this.id = sumaId;
+		sumaId++;
 	}
 
 	public String getNombre() {
@@ -28,11 +30,11 @@ public class Usuario {
 	}
 
 	public String getContraseña() {
-		return contraseña;
+		return contrasena;
 	}
 
 	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+		this.contrasena = contraseña;
 	}
 
 	public int getNivel() {
@@ -52,17 +54,17 @@ public class Usuario {
 	}
 
 	public int getId() {
-		return id;
+		return sumaId;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", contraseña=" + contraseña + ", puntaje=" + puntaje + ", nivel=" + nivel
+		return "Usuario [nombre=" + nombre + ", contrasena=" + contrasena + ", nivel=" + nivel + ", puntaje=" + puntaje
 				+ ", id=" + id + "]";
 	}
 
 	public String imprimir() {
-		String hilera = "Nombre: " + nombre + ", Puntaje: " + puntaje + "\n";
+		String hilera = "Nombre: " + nombre + ", Contrasena: " + contrasena + ", Nivel: " + nivel + ", Puntaje: " + puntaje + ", Id: " + id + "\n";
 		return hilera;
 	}
 }

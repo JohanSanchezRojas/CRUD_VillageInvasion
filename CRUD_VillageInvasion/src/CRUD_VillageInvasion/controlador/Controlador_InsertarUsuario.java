@@ -10,6 +10,9 @@ import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
 import CRUD_VillageInvasion.modelo.dataset.ListaUsuarios;
 import CRUD_VillageInvasion.vista.Vista_InsertarUsuario;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ */
 public class Controlador_InsertarUsuario implements ActionListener {
 	private Vista_InsertarUsuario vista;
 	private DAO_Usuario modelo;
@@ -24,15 +27,12 @@ public class Controlador_InsertarUsuario implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		//CORREGIR USUARIOS REPETIDOS!!!!!!
-		
 		if (e.getSource() == vista.getBtnAceptar()) {
 			String nombre;
 			String contrasena;
 
 			nombre = vista.getTfNombre().getText();
-			contrasena = vista.getTfContrasena().getText();
+			contrasena = vista.getpF_Contrasena().getText();
 
 			int caracteresNombre = nombre.length();
 			int caracteresContrasena = contrasena.length();
@@ -47,28 +47,27 @@ public class Controlador_InsertarUsuario implements ActionListener {
 
 					if (listaUsuarios[i] != null) {
 						nombreAux = listaUsuarios[i].getNombre();
-					}
 
-					if (nombreAux == nombre) {
-						i = listaUsuarios.length;
-						repetirIngreso = false;
+						if (nombreAux.equals(nombre)) {
+							i = listaUsuarios.length;
+							repetirIngreso = false;
+						}
 					}
 				}
-				
+
 				if (repetirIngreso) {
 					Usuario usuario = new Usuario(nombre, contrasena);
 					modelo.insertar(usuario);
 					repetirIngreso = false;
-					JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente");
+					JOptionPane.showMessageDialog(null, "Usuario registrado exitosamente", "", JOptionPane.INFORMATION_MESSAGE);
 					vista.borrarTF();
 				} else {
-					JOptionPane.showInternalMessageDialog(null, "El nombre de usuario ya existe, por favor elija otro");
+					JOptionPane.showMessageDialog(null, "El nombre de usuario ya existe, por favor elija otro", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
 
 			} else {
-				JOptionPane.showMessageDialog(null,
-						"ERROR\n" + "El nombre de usuario debe tener entre 4 y 50 caracteres\n"
-								+ "La contrasena debe tener entre y 4 y 10 caracteres");
+				JOptionPane.showMessageDialog(null,"El nombre de usuario debe tener entre 4 y 50 caracteres\n"
+						+ "La contrasena debe tener entre y 4 y 10 caracteres" , "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 

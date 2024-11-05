@@ -43,7 +43,7 @@ public class Controlador_MenuJuego implements ActionListener{
 		}
 		
 		if (e.getSource() == vista.getjM_MostrarUsuario()) {
-			System.out.println("Mostrar Usuario");
+			System.out.println(modelo.getLista().imprimir());
 		}
 		
 		if (e.getSource() == vista.getjM_ActualizarUsuario()) {

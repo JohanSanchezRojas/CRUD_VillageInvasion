@@ -122,10 +122,12 @@ public class ListaUsuarios {
 	}
 
 	public String imprimir() {
-		String hilera = "";
+		String hilera = "Lista:\n";
 
 		for (int i = 0; i < listaUsuarios.length; i++) {
-			hilera = listaUsuarios[i].imprimir();
+			if (listaUsuarios[i] != null) {
+				hilera += listaUsuarios[i].imprimir() + "\n";
+			}
 		}
 
 		return hilera;
