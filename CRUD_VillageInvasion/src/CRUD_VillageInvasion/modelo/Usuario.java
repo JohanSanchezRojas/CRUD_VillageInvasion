@@ -10,7 +10,7 @@ public class Usuario {
 	private int nivel;
 	private int puntaje;
 	private int id;
-	private static int sumaId = 0;
+	private static int sumaId = 1;
 
 	public Usuario(String nombre, String contraseña) {
 		this.nombre = nombre;

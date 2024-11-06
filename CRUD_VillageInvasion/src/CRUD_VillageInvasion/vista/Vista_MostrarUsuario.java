@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import java.awt.Scrollbar;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class Vista_MostrarUsuario extends JDialog {
 	private JRadioButton rdbtnBuscarNombre;
@@ -28,12 +29,13 @@ public class Vista_MostrarUsuario extends JDialog {
 	private JButton btnCancelar;
 	private JTextField tfDato;
 	private JScrollPane sP_Resultado;
+	private JTable table;
 
 	public Vista_MostrarUsuario(JFrame parent) {
 		super(parent);
 		initComponents();
 		setTitle("Insertar usuario");
-		setSize(424, 250);
+		setSize(781, 530);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
@@ -46,28 +48,28 @@ public class Vista_MostrarUsuario extends JDialog {
 				+ "y luego seleccione el tipo de dato que ha ingresado</html>");
 		lblTitulo1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo1.setToolTipText("");
-		lblTitulo1.setBounds(10, 10, 388, 36);
+		lblTitulo1.setBounds(183, 11, 388, 36);
 		getContentPane().add(lblTitulo1);
 
 		JLabel lblTitulo2 = new JLabel("Seleccione el usuario que desea buscar y presione \"Mostrar usuario\"");
 		lblTitulo2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo2.setBounds(10, 136, 388, 13);
+		lblTitulo2.setBounds(183, 149, 388, 13);
 		getContentPane().add(lblTitulo2);
 		
 		sP_Resultado = new JScrollPane();
-		sP_Resultado.setBounds(105, 154, 173, 29);
+		sP_Resultado.setBounds(193, 179, 378, 204);
 		getContentPane().add(sP_Resultado);
 		
 		rdbtnBuscarNombre = new JRadioButton("Nombre");
-		rdbtnBuscarNombre.setBounds(97, 78, 71, 21);
+		rdbtnBuscarNombre.setBounds(223, 78, 71, 21);
 		getContentPane().add(rdbtnBuscarNombre);
 
 		rdbtnBuscarNivel = new JRadioButton("Nivel");
-		rdbtnBuscarNivel.setBounds(170, 78, 58, 21);
+		rdbtnBuscarNivel.setBounds(353, 78, 58, 21);
 		getContentPane().add(rdbtnBuscarNivel);
 
 		rdbtnBuscarPuntaje = new JRadioButton("Puntaje");
-		rdbtnBuscarPuntaje.setBounds(230, 78, 72, 21);
+		rdbtnBuscarPuntaje.setBounds(468, 78, 72, 21);
 		getContentPane().add(rdbtnBuscarPuntaje);
 		
 		bGroup = new ButtonGroup();
@@ -76,19 +78,19 @@ public class Vista_MostrarUsuario extends JDialog {
 		bGroup.add(rdbtnBuscarPuntaje);
 
 		btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(147, 105, 85, 21);
+		btnBuscar.setBounds(340, 117, 85, 21);
 		getContentPane().add(btnBuscar);
 
 		btnMostrarUsuario = new JButton("Mostrar usuario");
-		btnMostrarUsuario.setBounds(73, 192, 107, 21);
+		btnMostrarUsuario.setBounds(166, 394, 107, 21);
 		getContentPane().add(btnMostrarUsuario);
 
 		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(230, 192, 85, 21);
+		btnCancelar.setBounds(539, 394, 85, 21);
 		getContentPane().add(btnCancelar);
 		
 		tfDato = new JTextField();
-		tfDato.setBounds(87, 48, 215, 24);
+		tfDato.setBounds(274, 47, 215, 24);
 		getContentPane().add(tfDato);
 		tfDato.setColumns(10);
 	}

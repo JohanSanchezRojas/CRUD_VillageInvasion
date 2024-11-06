@@ -6,7 +6,7 @@ import CRUD_VillageInvasion.modelo.Usuario;
  * Joshua Chacón Alvarez C4E105
  */
 public class ListaUsuarios {
-	private Usuario[] listaUsuarios;
+	private Usuario[] listaUsuarios ;
 	private int contarUsuarios;
 	public static final int TAMANO = 50;
 
@@ -57,21 +57,48 @@ public class ListaUsuarios {
 		}
 	}
 
-	public Usuario getUsuario(String nombre) {
-		int temp = 0;
-		boolean ciclo = true;
+	public Usuario getUsuarioNom(String nombre) {
+		Usuario u = null;
 		
-		while (ciclo) {
-			if (listaUsuarios[temp].getNombre() == nombre) {
-				ciclo = false;
-			} else {
-				temp += 1;
+		for (int i = 0; i < listaUsuarios.length; i++) {
+			if(listaUsuarios[i] != null) {
+				if(listaUsuarios[i].getNombre().equals(nombre)) {
+					u = listaUsuarios[i];
+				}
 			}
 		}
 		
-		Usuario u = listaUsuarios[temp];
 		return u;
 	}
+	
+	public Usuario[] getUsuarioPtje(int ptje) {
+		Usuario usuariosTemp[] = new Usuario[listaUsuarios.length];
+		int contador = 0;
+		
+		for (int i = 0; i < listaUsuarios.length; i++) {
+			if(listaUsuarios[i].getPuntaje() == ptje) {
+				usuariosTemp[contador++] = listaUsuarios[i];
+				
+			}
+		} 
+		
+		return usuariosTemp;
+	}
+	
+	public Usuario[] getUsuarioNvl(int nvl) {
+		Usuario usuariosTemp[] = new Usuario[listaUsuarios.length];
+		int contador = 0;
+		
+		for (int i = 0; i < listaUsuarios.length; i++) {
+			if(listaUsuarios[i].getPuntaje() == nvl) {
+				usuariosTemp[contador++] = listaUsuarios[i];
+				
+			}
+		} 
+		return usuariosTemp;
+	}
+	
+	
 
 	public void eliminar(String nombre) {
 		int temp = 0;
@@ -112,5 +139,9 @@ public class ListaUsuarios {
 		}
 
 		return hilera;
+	}
+	
+	public int getTamaño() {
+		return listaUsuarios.length;
 	}
 }

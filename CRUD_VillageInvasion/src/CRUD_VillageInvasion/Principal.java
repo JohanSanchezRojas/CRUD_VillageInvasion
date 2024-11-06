@@ -1,6 +1,7 @@
 package CRUD_VillageInvasion;
 
 import CRUD_VillageInvasion.controlador.Controlador_MenuJuego;
+import CRUD_VillageInvasion.modelo.Usuario;
 import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
 import CRUD_VillageInvasion.modelo.dataset.ListaUsuarios;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;

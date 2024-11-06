@@ -6,9 +6,7 @@ import CRUD_VillageInvasion.modelo.Usuario;
  * Joshua Chacón Alvarez C4E105
  */
 public interface IDAO_Usuario {
-	public static final String TIPO_NOMBRE = "NOMBRE";
-	public static final String TIPO_NIVEL = "NIVEL";
-	public static final String TIPO_PUNTAJE = "PUNTAJE";
+	
 	
 	public abstract boolean insertar(Usuario u);
 
