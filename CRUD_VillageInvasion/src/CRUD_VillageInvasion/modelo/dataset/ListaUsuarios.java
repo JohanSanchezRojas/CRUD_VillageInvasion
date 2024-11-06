@@ -76,9 +76,11 @@ public class ListaUsuarios {
 		int contador = 0;
 		
 		for (int i = 0; i < listaUsuarios.length; i++) {
-			if(listaUsuarios[i].getPuntaje() == ptje) {
-				usuariosTemp[contador++] = listaUsuarios[i];
-				
+			if (listaUsuarios[i] != null) {
+				if(listaUsuarios[i].getPuntaje() == ptje) {
+					usuariosTemp[contador++] = listaUsuarios[i];
+					
+				}
 			}
 		} 
 		
@@ -90,10 +92,13 @@ public class ListaUsuarios {
 		int contador = 0;
 		
 		for (int i = 0; i < listaUsuarios.length; i++) {
-			if(listaUsuarios[i].getPuntaje() == nvl) {
-				usuariosTemp[contador++] = listaUsuarios[i];
-				
+			if (listaUsuarios[i] != null) {
+				if(listaUsuarios[i].getNivel() == nvl) {
+					usuariosTemp[contador++] = listaUsuarios[i];
+					
+				}
 			}
+			
 		} 
 		return usuariosTemp;
 	}

@@ -25,113 +25,126 @@ public class Controlador_MostrarUsuario implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String busqueda;
+		String busqueda = null;
 
 		busqueda = vista.getTfDato().getText();
-		
+
 		Usuario[] usuariosBuscados;
+
+		if (e.getSource() == vista.getBtnBuscar() && busqueda.equals("")) {
+			JOptionPane.showMessageDialog(null, "Porfavor digite la informacion solicitada", "ERROR",
+					JOptionPane.ERROR_MESSAGE);
+		} 
+
+		if (e.getSource() == vista.getBtnBuscar() && vista.getRdbtnBuscarNombre().isSelected() == false
+				&& vista.getRdbtnBuscarPuntaje().isSelected() == false
+				&& vista.getRdbtnBuscarNivel().isSelected() == false) {
+			JOptionPane.showMessageDialog(null, "Porfavor seleccione una de las opciones de busqueda", "ERROR",
+					JOptionPane.ERROR_MESSAGE);
+		}
 		
 		if (busqueda != null) {
 			if (vista.getRdbtnBuscarNombre().isSelected()) {
 				int caracteresBusqueda = busqueda.length();
-				
+
 				if (caracteresBusqueda >= 4 && caracteresBusqueda <= 50) {
-					
+
 					usuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_NOMBRE, busqueda);
-					
-					if(usuariosBuscados[0] != null) {
+
+					if (usuariosBuscados[0] != null) {
 						mostrarUsuario(usuariosBuscados);
-						
-						
-					}else {
-						JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese nombre", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+					} else {
+						JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese nombre", "ERROR",
+								JOptionPane.ERROR_MESSAGE);
 					}
-					
-				}else {
-					JOptionPane.showMessageDialog(null, "El nombre de usuario debe tener entre 4 y 50 caracteres", "ERROR", JOptionPane.ERROR_MESSAGE);
-					
+
+				} else {
+					JOptionPane.showMessageDialog(null, "El nombre de usuario debe tener entre 4 y 50 caracteres",
+							"ERROR", JOptionPane.ERROR_MESSAGE);
+
 				}
-				
-				
+
 			}
 
 			if (vista.getRdbtnBuscarPuntaje().isSelected()) {
-				
+
 				if (validarInt(busqueda)) {
-					
+					System.out.println("FUNCA");
 					int ptje = Integer.parseInt(busqueda);
-					
-					if(ptje >= 1 && ptje <= 999) {
+
+					if (ptje >= 1 && ptje <= 999) {
 						usuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_PUNTAJE, busqueda);
-						if(usuariosBuscados == null) {
-							JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese puntaje", "ERROR", JOptionPane.ERROR_MESSAGE);
-							
-						}else {
+						if (usuariosBuscados != null) {
 							mostrarUsuario(usuariosBuscados);
+						} else if (usuariosBuscados == null) {
+							JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese puntaje",
+									"ERROR", JOptionPane.ERROR_MESSAGE);
+							
 						}
-					}else {
-						JOptionPane.showMessageDialog(null, "Intente de nuevo ingresando un numero del 1 al 999", "ERROR", JOptionPane.ERROR_MESSAGE);
-						
+					} else {
+						JOptionPane.showMessageDialog(null, "Intente de nuevo ingresando un numero del 1 al 999",
+								"ERROR", JOptionPane.ERROR_MESSAGE);
+
 					}
-					
-					
-				}else {
-					JOptionPane.showMessageDialog(null, "Por favor digite el formato correspondiente al tipo dato con el que desea buscar al usuario", "ERROR", JOptionPane.ERROR_MESSAGE);
-					
+
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"Por favor digite el formato correspondiente al tipo dato con el que desea buscar al usuario",
+							"ERROR", JOptionPane.ERROR_MESSAGE);
+
 				}
-				
-				
-				
+
 			}
 
 			if (vista.getRdbtnBuscarNivel().isSelected()) {
-				
+
 				if (validarInt(busqueda)) {
 					int nvl = Integer.parseInt(busqueda);
-					
-					if(nvl >= 1 && nvl <= 10) {
+
+					if (nvl >= 1 && nvl <= 10) {
 						usuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_NIVEL, busqueda);
-						if(usuariosBuscados == null) {
-							JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese nivel", "ERROR", JOptionPane.ERROR_MESSAGE);
-							
-						}else {
+						if (usuariosBuscados == null) {
+							JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese nivel", "ERROR",
+									JOptionPane.ERROR_MESSAGE);
+
+						} else {
 							mostrarUsuario(usuariosBuscados);
 						}
-					}else {
-						JOptionPane.showMessageDialog(null, "Intente de nuevo ingresando un numero del 1 al 10", "ERROR", JOptionPane.ERROR_MESSAGE);
-						
+					} else {
+						JOptionPane.showMessageDialog(null, "Intente de nuevo ingresando un numero del 1 al 10",
+								"ERROR", JOptionPane.ERROR_MESSAGE);
+
 					}
-				}else {
-					JOptionPane.showMessageDialog(null, "Por favor digite el formato correspondiente al tipo dato con el que desea buscar al usuario", "ERROR", JOptionPane.ERROR_MESSAGE);
-					
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"Por favor digite el formato correspondiente al tipo dato con el que desea buscar al usuario",
+							"ERROR", JOptionPane.ERROR_MESSAGE);
+
 				}
-				
+
 			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Digite la informacion solicitada", "ERROR", JOptionPane.ERROR_MESSAGE);
-			
+
 		}
 	}
-	
+
 	public void mostrarUsuario(Usuario[] u) {
 		System.out.print("Encontrao");
 	}
-	
-	
+
 	public boolean validarInt(String s) {
-		boolean resultado ;
-		
+		boolean resultado;
+
 		try {
-            Integer.parseInt(s);
-            resultado = true;
-        } catch (NumberFormatException excepcion) {
-            resultado = false;
-        }
-		
-		
+			Integer.parseInt(s);
+			resultado = true;
+		} catch (NumberFormatException excepcion) {
+			resultado = false;
+		}
+
 		return resultado;
 	}
-	
-	
 
 }
