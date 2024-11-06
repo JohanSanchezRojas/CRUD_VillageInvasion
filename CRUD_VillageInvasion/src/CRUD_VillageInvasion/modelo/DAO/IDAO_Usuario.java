@@ -12,9 +12,7 @@ public interface IDAO_Usuario {
 	
 	public abstract boolean insertar(Usuario u);
 
-	public abstract Usuario generarUsuario();
-
-	public abstract Usuario buscarUsuario(String tipo, String dato);
+	public abstract Usuario[] buscarUsuarios(String tipo, String dato);
 	
 	public abstract boolean eliminar(int id);
 }

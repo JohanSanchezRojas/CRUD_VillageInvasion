@@ -7,6 +7,7 @@ import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
 import CRUD_VillageInvasion.vista.Vista_ActualizarUsuario;
 import CRUD_VillageInvasion.vista.Vista_InsertarUsuario;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
+import CRUD_VillageInvasion.vista.Vista_MostrarUsuario;
 import CRUD_VillageInvasion.vista.Vista_InsertarUsuario;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 
@@ -18,8 +19,10 @@ public class Controlador_MenuJuego implements ActionListener{
 	
 	private Vista_MenuJuego vista;
 	private Vista_InsertarUsuario vistaI;
+	private Vista_MostrarUsuario vistaM;
 	
 	private Controlador_InsertarUsuario controladorI;
+	private Controlador_MostrarUsuario controladorM;
 	
 	public Controlador_MenuJuego(DAO_Usuario modelo, Vista_MenuJuego vista) {
 		this.modelo = modelo;
@@ -43,6 +46,8 @@ public class Controlador_MenuJuego implements ActionListener{
 		}
 		
 		if (e.getSource() == vista.getjM_MostrarUsuario()) {
+			vistaM = new Vista_MostrarUsuario(vista);
+			controladorM = new Controlador_MostrarUsuario(vistaM, modelo);
 			System.out.println(modelo.getLista().imprimir());
 		}
 		

@@ -41,25 +41,6 @@ public class ListaUsuarios {
 			}
 			contarUsuarios++;
 		} 
-		
-		//REVISAR
-		
-//		int asignadorId = 0;
-//		
-//		if (contarUsuarios >= listaUsuarios.length) {
-//			crecer();
-//			//int posicion = contador - 1;
-//			//usuarios[posicion].setId(asignadorId++); 
-//			listaUsuarios[contarUsuarios++] = usuario;
-//			contarUsuarios++;
-//		} else {
-//			if (usuario != null) {
-//				//int posicion = contador - 1;
-//				//usuarios[posicion].setId(asignadorId++); 
-//				listaUsuarios[contarUsuarios++] = usuario;
-//				contarUsuarios++;
-//			}
-//		}
 	}
 
 	public void crecer() {

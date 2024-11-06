@@ -3,6 +3,7 @@ package CRUD_VillageInvasion.vista;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -20,7 +21,8 @@ import javax.swing.JScrollPane;
 public class Vista_MostrarUsuario extends JDialog {
 	private JRadioButton rdbtnBuscarNombre;
 	private JRadioButton rdbtnBuscarNivel;
-	private JRadioButton rdbtnPuntaje;
+	private JRadioButton rdbtnBuscarPuntaje;
+	private ButtonGroup bGroup;
 	private JButton btnBuscar;
 	private JButton btnMostrarUsuario;
 	private JButton btnCancelar;
@@ -42,13 +44,14 @@ public class Vista_MostrarUsuario extends JDialog {
 	private void initComponents() {
 		JLabel lblTitulo1 = new JLabel("<html>Ingrese el dato con el que desea buscar al usuario<br>"
 				+ "y luego seleccione el tipo de dato que ha ingresado</html>");
-		lblTitulo1.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblTitulo1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo1.setToolTipText("");
-		lblTitulo1.setBounds(77, 10, 238, 36);
+		lblTitulo1.setBounds(10, 10, 388, 36);
 		getContentPane().add(lblTitulo1);
 
 		JLabel lblTitulo2 = new JLabel("Seleccione el usuario que desea buscar y presione \"Mostrar usuario\"");
-		lblTitulo2.setBounds(45, 136, 323, 13);
+		lblTitulo2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo2.setBounds(10, 136, 388, 13);
 		getContentPane().add(lblTitulo2);
 		
 		sP_Resultado = new JScrollPane();
@@ -56,23 +59,28 @@ public class Vista_MostrarUsuario extends JDialog {
 		getContentPane().add(sP_Resultado);
 		
 		rdbtnBuscarNombre = new JRadioButton("Nombre");
-		rdbtnBuscarNombre.setBounds(97, 78, 61, 21);
+		rdbtnBuscarNombre.setBounds(97, 78, 71, 21);
 		getContentPane().add(rdbtnBuscarNombre);
 
 		rdbtnBuscarNivel = new JRadioButton("Nivel");
-		rdbtnBuscarNivel.setBounds(170, 78, 47, 21);
+		rdbtnBuscarNivel.setBounds(170, 78, 58, 21);
 		getContentPane().add(rdbtnBuscarNivel);
 
-		rdbtnPuntaje = new JRadioButton("Puntaje");
-		rdbtnPuntaje.setBounds(230, 78, 61, 21);
-		getContentPane().add(rdbtnPuntaje);
+		rdbtnBuscarPuntaje = new JRadioButton("Puntaje");
+		rdbtnBuscarPuntaje.setBounds(230, 78, 72, 21);
+		getContentPane().add(rdbtnBuscarPuntaje);
+		
+		bGroup = new ButtonGroup();
+		bGroup.add(rdbtnBuscarNombre);
+		bGroup.add(rdbtnBuscarNivel);
+		bGroup.add(rdbtnBuscarPuntaje);
 
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(147, 105, 85, 21);
 		getContentPane().add(btnBuscar);
 
 		btnMostrarUsuario = new JButton("Mostrar usuario");
-		btnMostrarUsuario.setBounds(75, 192, 105, 21);
+		btnMostrarUsuario.setBounds(73, 192, 107, 21);
 		getContentPane().add(btnMostrarUsuario);
 
 		btnCancelar = new JButton("Cancelar");
@@ -101,14 +109,22 @@ public class Vista_MostrarUsuario extends JDialog {
 		this.rdbtnBuscarNivel = rdbtnBuscarNivel;
 	}
 
-	public JRadioButton getRdbtnPuntaje() {
-		return rdbtnPuntaje;
+	public JRadioButton getRdbtnBuscarPuntaje() {
+		return rdbtnBuscarPuntaje;
 	}
 
-	public void setRdbtnPuntaje(JRadioButton rdbtnPuntaje) {
-		this.rdbtnPuntaje = rdbtnPuntaje;
+	public void setRdbtnBuscarPuntaje(JRadioButton rdbtnPuntaje) {
+		this.rdbtnBuscarPuntaje = rdbtnPuntaje;
 	}
 
+	public ButtonGroup getbGroup() {
+		return bGroup;
+	}
+
+	public void setbGroup(ButtonGroup bGroup) {
+		this.bGroup = bGroup;
+	}
+	
 	public JButton getBtnBuscar() {
 		return btnBuscar;
 	}
