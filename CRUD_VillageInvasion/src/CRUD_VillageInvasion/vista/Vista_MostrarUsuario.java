@@ -10,14 +10,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import java.awt.Scrollbar;
+import java.util.List;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JList;
 
 public class Vista_MostrarUsuario extends JDialog {
 	private JRadioButton rdbtnBuscarNombre;
@@ -29,7 +33,7 @@ public class Vista_MostrarUsuario extends JDialog {
 	private JButton btnCancelar;
 	private JTextField tfDato;
 	private JScrollPane sP_Resultado;
-	private JTable table;
+	private JList list_Usuarios;
 
 	public Vista_MostrarUsuario(JFrame parent) {
 		super(parent);
@@ -59,6 +63,10 @@ public class Vista_MostrarUsuario extends JDialog {
 		sP_Resultado = new JScrollPane();
 		sP_Resultado.setBounds(193, 179, 378, 204);
 		getContentPane().add(sP_Resultado);
+		
+		list_Usuarios = new JList();
+		sP_Resultado.setViewportView(list_Usuarios);
+		list_Usuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		rdbtnBuscarNombre = new JRadioButton("Nombre");
 		rdbtnBuscarNombre.setBounds(223, 78, 71, 21);
@@ -93,6 +101,16 @@ public class Vista_MostrarUsuario extends JDialog {
 		tfDato.setBounds(274, 47, 215, 24);
 		getContentPane().add(tfDato);
 		tfDato.setColumns(10);
+		
+		
+	}
+
+	public JList getList_Usuarios() {
+		return list_Usuarios;
+	}
+
+	public void setList_Usuarios(JList list_Usuarios) {
+		this.list_Usuarios = list_Usuarios;
 	}
 
 	public JRadioButton getRdbtnBuscarNombre() {

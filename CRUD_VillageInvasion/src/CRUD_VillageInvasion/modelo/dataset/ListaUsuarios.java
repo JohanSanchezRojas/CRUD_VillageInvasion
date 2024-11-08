@@ -6,7 +6,7 @@ import CRUD_VillageInvasion.modelo.Usuario;
  * Joshua Chacón Alvarez C4E105
  */
 public class ListaUsuarios {
-	private Usuario[] listaUsuarios ;
+	private Usuario[] listaUsuarios;
 	private int contarUsuarios;
 	public static final int TAMANO = 50;
 
@@ -72,28 +72,33 @@ public class ListaUsuarios {
 	}
 	
 	public Usuario[] getUsuarioPtje(int ptje) {
-		Usuario usuariosTemp[] = new Usuario[listaUsuarios.length];
+		Usuario[] usuarios = new Usuario[listaUsuarios.length];
+		Usuario[] usuariosTemp = null;
 		int contador = 0;
 		
 		for (int i = 0; i < listaUsuarios.length; i++) {
 			if (listaUsuarios[i] != null) {
 				if(listaUsuarios[i].getPuntaje() == ptje) {
-					usuariosTemp[contador++] = listaUsuarios[i];
-					
+					usuarios[contador++] = listaUsuarios[i];					
 				}
 			}
 		} 
+		
+		if (usuarios != null) {
+			usuariosTemp = usuarios;
+		}
 		
 		return usuariosTemp;
 	}
 	
 	public Usuario[] getUsuarioNvl(int nvl) {
-		Usuario usuariosTemp[] = new Usuario[listaUsuarios.length];
+		Usuario[] usuariosTemp = null;
 		int contador = 0;
 		
 		for (int i = 0; i < listaUsuarios.length; i++) {
 			if (listaUsuarios[i] != null) {
 				if(listaUsuarios[i].getNivel() == nvl) {
+					usuariosTemp = new Usuario[listaUsuarios.length];
 					usuariosTemp[contador++] = listaUsuarios[i];
 					
 				}
