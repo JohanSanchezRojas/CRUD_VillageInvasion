@@ -63,7 +63,7 @@ public class Usuario {
 	}
 
 	public String imprimir() {
-		String hilera = "Nombre: " + nombre + ", Contrasena: " + contrasena + ", Nivel: " + nivel + ", Puntaje: " + puntaje + ", Id: " + id + "\n";
+		String hilera = "Nombre: " + nombre + ", Nivel: " + nivel + ", Puntaje: " + puntaje + ", Id: " + id + "\n";
 		return hilera;
 	}
 }

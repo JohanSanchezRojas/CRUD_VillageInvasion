@@ -92,19 +92,22 @@ public class ListaUsuarios {
 	}
 	
 	public Usuario[] getUsuarioNvl(int nvl) {
+		Usuario[] usuarios = new Usuario[listaUsuarios.length];
 		Usuario[] usuariosTemp = null;
 		int contador = 0;
 		
 		for (int i = 0; i < listaUsuarios.length; i++) {
 			if (listaUsuarios[i] != null) {
 				if(listaUsuarios[i].getNivel() == nvl) {
-					usuariosTemp = new Usuario[listaUsuarios.length];
-					usuariosTemp[contador++] = listaUsuarios[i];
-					
+					usuarios[contador++] = listaUsuarios[i];					
 				}
 			}
-			
 		} 
+		
+		if (usuarios != null) {
+			usuariosTemp = usuarios;
+		}
+		
 		return usuariosTemp;
 	}
 	

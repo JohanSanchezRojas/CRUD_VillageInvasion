@@ -15,13 +15,15 @@ public class Controlador_MostrarUsuario implements ActionListener {
 	private Vista_MostrarUsuario vista;
 	private DAO_Usuario modelo;
 
+	private Usuario[] listaUsuariosBuscados;
+
 	public Controlador_MostrarUsuario(Vista_MostrarUsuario vista, DAO_Usuario modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
 
 		vista.getBtnBuscar().addActionListener(actionListenerBuscar());
-		vista.getBtnMostrarUsuario().addActionListener(this);
-		vista.getBtnCancelar().addActionListener(this);
+		vista.getBtnMostrarUsuario().addActionListener(actionListenerMostrar());
+		vista.getBtnCancelar().addActionListener(actionListenerSalir());
 	}
 
 	private ActionListener actionListenerBuscar() {
@@ -31,17 +33,15 @@ public class Controlador_MostrarUsuario implements ActionListener {
 
 				busqueda = vista.getTfDato().getText();
 
-				Usuario[] usuariosBuscados;
-
 				// Mostrar error en caso de el espacio de busqueda este vacio
-				if (e.getSource() == vista.getBtnBuscar() && busqueda.equals("")) {
+				if (busqueda.equals("")) {
 					JOptionPane.showMessageDialog(null, "Porfavor digite la informacion solicitada", "ERROR",
 							JOptionPane.ERROR_MESSAGE);
 				}
 
 				// Mostrar error en caso de que se presione buscar pero no haya seleccionado el
 				// tipo de dato
-				if (e.getSource() == vista.getBtnBuscar() && vista.getRdbtnBuscarNombre().isSelected() == false
+				if (vista.getRdbtnBuscarNombre().isSelected() == false
 						&& vista.getRdbtnBuscarPuntaje().isSelected() == false
 						&& vista.getRdbtnBuscarNivel().isSelected() == false) {
 					JOptionPane.showMessageDialog(null, "Porfavor seleccione una de las opciones de busqueda", "ERROR",
@@ -53,10 +53,10 @@ public class Controlador_MostrarUsuario implements ActionListener {
 					int caracteresBusqueda = busqueda.length();
 
 					if (caracteresBusqueda >= 4 && caracteresBusqueda <= 50) {
-						usuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_NOMBRE, busqueda);
+						listaUsuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_NOMBRE, busqueda);
 
-						if (usuariosBuscados[0] != null) {
-							mostrarUsuario(usuariosBuscados);
+						if (listaUsuariosBuscados[0] != null) {
+							mostrarUsuario(listaUsuariosBuscados);
 
 						} else {
 							JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese nombre", "ERROR",
@@ -74,11 +74,11 @@ public class Controlador_MostrarUsuario implements ActionListener {
 						int ptje = Integer.parseInt(busqueda);
 
 						if (ptje >= 0) {
-							usuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_PUNTAJE, busqueda);
+							listaUsuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_PUNTAJE, busqueda);
 
-							if (usuariosBuscados != null) {
-								mostrarUsuario(usuariosBuscados);
-							} else if (usuariosBuscados == null) {
+							if (listaUsuariosBuscados != null) {
+								mostrarUsuario(listaUsuariosBuscados);
+							} else if (listaUsuariosBuscados == null) {
 								JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese puntaje",
 										"ERROR", JOptionPane.ERROR_MESSAGE);
 							}
@@ -99,14 +99,14 @@ public class Controlador_MostrarUsuario implements ActionListener {
 						int nvl = Integer.parseInt(busqueda);
 
 						if (nvl >= 0 && nvl <= 10) {
-							usuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_NIVEL, busqueda);
+							listaUsuariosBuscados = modelo.buscarUsuarios(DAO_Usuario.TIPO_NIVEL, busqueda);
 
-							if (usuariosBuscados == null) {
+							if (listaUsuariosBuscados == null) {
 								JOptionPane.showMessageDialog(null, "No se encontro ningun usuario con ese nivel",
 										"ERROR", JOptionPane.ERROR_MESSAGE);
 
 							} else {
-								mostrarUsuario(usuariosBuscados);
+								mostrarUsuario(listaUsuariosBuscados);
 							}
 						} else {
 							JOptionPane.showMessageDialog(null, "Intente de nuevo ingresando un numero del 0 al 10",
@@ -122,9 +122,34 @@ public class Controlador_MostrarUsuario implements ActionListener {
 		};
 	}
 
+	private ActionListener actionListenerMostrar() {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (vista.getList_Usuarios().getSelectedValue() == null) {
+					JOptionPane.showMessageDialog(null, "Por favor seleccione uno de los usuarios mostrados", "ERROR",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					int indice = vista.getList_Usuarios().getSelectedIndex();
+					JOptionPane.showMessageDialog(null, listaUsuariosBuscados[indice].imprimir(),
+							"Informacion del usuario", JOptionPane.PLAIN_MESSAGE);
+				}
+
+			}
+		};
+	}
+
+	private ActionListener actionListenerSalir() {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.dispose();
+			}
+		};
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//No es necesario usarla
+		// No es necesario usarla
 //		private ActionListener "Nombre"() {
 //	        return new ActionListener() {
 //	            public void actionPerformed(ActionEvent e) {
@@ -136,7 +161,6 @@ public class Controlador_MostrarUsuario implements ActionListener {
 
 	public void mostrarUsuario(Usuario[] u) {
 		vista.getList_Usuarios().setListData(u);
-		System.out.print("Encontrao");
 	}
 
 	public boolean validarInt(String s) {
