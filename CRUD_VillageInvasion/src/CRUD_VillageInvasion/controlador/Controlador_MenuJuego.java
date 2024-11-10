@@ -20,9 +20,11 @@ public class Controlador_MenuJuego implements ActionListener{
 	private Vista_MenuJuego vista;
 	private Vista_InsertarUsuario vistaI;
 	private Vista_MostrarUsuario vistaM;
+	private Vista_ActualizarUsuario vistaA;
 	
 	private Controlador_InsertarUsuario controladorI;
 	private Controlador_MostrarUsuario controladorM;
+	private Controlador_ActualizarUsuario controladorA;
 	
 	public Controlador_MenuJuego(DAO_Usuario modelo, Vista_MenuJuego vista) {
 		this.modelo = modelo;
@@ -52,7 +54,9 @@ public class Controlador_MenuJuego implements ActionListener{
 		}
 		
 		if (e.getSource() == vista.getjM_ActualizarUsuario()) {
-			System.out.println("Actualizar Usuario");
+			vistaA = new Vista_ActualizarUsuario(vista);
+			controladorA = new Controlador_ActualizarUsuario(vistaA, modelo);
+			System.out.println(modelo.getLista().imprimir());
 		}
 		
 		if (e.getSource() == vista.getjM_EliminarUsuario()) {

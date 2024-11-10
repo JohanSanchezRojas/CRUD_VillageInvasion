@@ -3,25 +3,34 @@ package CRUD_VillageInvasion.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 import CRUD_VillageInvasion.modelo.Usuario;
 import CRUD_VillageInvasion.modelo.DAO.IDAO_Usuario;
 import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
+import CRUD_VillageInvasion.vista.Vista_ActualizarUsuario;
+import CRUD_VillageInvasion.vista.Vista_CambiarContrasena;
+import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 import CRUD_VillageInvasion.vista.Vista_MostrarUsuario;
 
-public class Controlador_MostrarUsuario implements ActionListener {
-	private Vista_MostrarUsuario vista;
+public class Controlador_ActualizarUsuario implements ActionListener {
 	private DAO_Usuario modelo;
-
+	
+	private Vista_ActualizarUsuario vista;
+	private Vista_MenuJuego vistaM;
+	private Vista_CambiarContrasena vistaC;
+	
+	private Controlador_CambiarContrasena controladorC;
+	
 	private Usuario[] listaUsuariosBuscados;
-
-	public Controlador_MostrarUsuario(Vista_MostrarUsuario vista, DAO_Usuario modelo) {
+	
+	public Controlador_ActualizarUsuario(Vista_ActualizarUsuario vista, DAO_Usuario modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
 
 		vista.getBtnBuscar().addActionListener(actionListenerBuscar());
-		vista.getBtnMostrarUsuario().addActionListener(actionListenerMostrar());
+		vista.getBtnMostrarUsuario().addActionListener(actionListenerActualizar());
 		vista.getBtnCancelar().addActionListener(actionListenerSalir());
 	}
 
@@ -121,7 +130,7 @@ public class Controlador_MostrarUsuario implements ActionListener {
 		};
 	}
 
-	private ActionListener actionListenerMostrar() {
+	private ActionListener actionListenerActualizar() {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -130,10 +139,11 @@ public class Controlador_MostrarUsuario implements ActionListener {
 							JOptionPane.ERROR_MESSAGE);
 				} else {
 					int indice = vista.getList_Usuarios().getSelectedIndex();
-					JOptionPane.showMessageDialog(null, listaUsuariosBuscados[indice].imprimir(),
-							"Informacion del usuario", JOptionPane.PLAIN_MESSAGE);
+					Usuario usuario = listaUsuariosBuscados[indice];
+					
+					vistaC = new Vista_CambiarContrasena(vistaM);
+					controladorC = new Controlador_CambiarContrasena(vistaC, modelo, usuario);
 				}
-
 			}
 		};
 	}

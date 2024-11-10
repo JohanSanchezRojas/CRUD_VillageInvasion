@@ -38,7 +38,7 @@ public class Vista_MostrarUsuario extends JDialog {
 	public Vista_MostrarUsuario(JFrame parent) {
 		super(parent);
 		initComponents();
-		setTitle("Insertar usuario");
+		setTitle("Mostrar usuario");
 		setSize(781, 530);
 		setResizable(false);
 		setLocationRelativeTo(null);
