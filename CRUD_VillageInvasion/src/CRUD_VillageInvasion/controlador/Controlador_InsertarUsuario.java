@@ -21,8 +21,8 @@ public class Controlador_InsertarUsuario implements ActionListener {
 		this.vista = vista;
 		this.modelo = modelo;
 
-		this.vista.getBtnAceptar().addActionListener(this);
-		this.vista.getBtnCancelar().addActionListener(this);
+		vista.getBtnAceptar().addActionListener(this);
+		vista.getBtnCancelar().addActionListener(this);
 	}
 
 	@Override

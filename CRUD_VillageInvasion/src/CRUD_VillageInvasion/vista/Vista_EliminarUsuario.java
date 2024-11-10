@@ -1,109 +1,115 @@
 package CRUD_VillageInvasion.vista;
-//Andrew Mora M
 
-import java.awt.EventQueue;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JList;
+import javax.swing.ListSelectionModel;
 
-public class Vista_EliminarUsuario extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField textFieldIntroducir;
-	private JTextField textFieldMostrar;
-	private JLabel lblBuscarNombre;
-	private JButton btnEliminar;
+public class Vista_EliminarUsuario extends JDialog {
+	private JTextField tfNombreUsuario;
+	private JButton btnBuscar;
+	private JScrollPane sP_Resultado;
+	private JList list_Usuarios;
+	private JButton btnEliminarUsuario;
 	private JButton btnCancelar;
 	
-	
-	
-	public Vista_EliminarUsuario() {
-		
-		InicializarComp();
-		setSize(500, 500);
+	public Vista_EliminarUsuario(JFrame parent) {
+		super(parent);
+		initComponents();
+		setTitle("Eliminar usuario");
+		setSize(533, 399);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		setVisible(true);
+		getContentPane().setLayout(null);
 		
+		this.setVisible(true);
 	}
 	
-	public void InicializarComp(){
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	private void initComponents() {
+		JLabel lblTitulo0 = new JLabel("Digite el nombre del usuario que desea eliminar");
+		lblTitulo0.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo0.setBounds(10, 11, 494, 14);
+		getContentPane().add(lblTitulo0);
 		
-		lblBuscarNombre = new JLabel("Introduzca el nombre del Usuario que desea eliminar:");
-		lblBuscarNombre.setBounds(10, 32, 414, 14);
-		contentPane.add(lblBuscarNombre);
+		tfNombreUsuario = new JTextField();
+		tfNombreUsuario.setBounds(163, 36, 168, 47);
+		getContentPane().add(tfNombreUsuario);
+		tfNombreUsuario.setColumns(10);
 		
-		textFieldIntroducir = new JTextField();
-		textFieldIntroducir.setBounds(10, 57, 414, 35);
-		contentPane.add(textFieldIntroducir);
-		textFieldIntroducir.setColumns(10);
+		btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(204, 94, 89, 23);
+		getContentPane().add(btnBuscar);
 		
-		btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(10, 201, 89, 23);
-		contentPane.add(btnEliminar);
+		JLabel lblTitulo1 = new JLabel("Seleccione el usuario que desea eliminar");
+		lblTitulo1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo1.setBounds(10, 128, 494, 14);
+		getContentPane().add(lblTitulo1);
+		
+		sP_Resultado = new JScrollPane();
+		sP_Resultado.setBounds(141, 153, 234, 95);
+		getContentPane().add(sP_Resultado);
+		
+		list_Usuarios = new JList();
+		list_Usuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		sP_Resultado.setViewportView(list_Usuarios);
+		
+		btnEliminarUsuario = new JButton("Eliminar usuario");
+		btnEliminarUsuario.setBounds(123, 273, 107, 23);
+		getContentPane().add(btnEliminarUsuario);
 		
 		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(335, 201, 89, 23);
-		contentPane.add(btnCancelar);
-		
-		textFieldMostrar = new JTextField();
-		textFieldMostrar.setBounds(10, 103, 414, 87);
-		contentPane.add(textFieldMostrar);
-		textFieldMostrar.setColumns(10);
+		btnCancelar.setBounds(306, 273, 89, 23);
+		getContentPane().add(btnCancelar);
 	}
 
-	public JPanel getContentPane() {
-		return contentPane;
+	public JTextField getTfNombreUsuario() {
+		return tfNombreUsuario;
 	}
 
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
+	public void setTfNombreUsuario(JTextField tfNombreUsuario) {
+		this.tfNombreUsuario = tfNombreUsuario;
 	}
 
-	public JTextField getTextFieldIntroducir() {
-		return textFieldIntroducir;
+	public JButton getBtnBuscar() {
+		return btnBuscar;
 	}
 
-	public void setTextFieldIntroducir(JTextField textFieldIntroducir) {
-		this.textFieldIntroducir = textFieldIntroducir;
+	public void setBtnBuscar(JButton btnBuscar) {
+		this.btnBuscar = btnBuscar;
 	}
 
-	public JTextField getTextFieldMostrar() {
-		return textFieldMostrar;
+	public JScrollPane getsP_Resultado() {
+		return sP_Resultado;
 	}
 
-	public void setTextFieldMostrar(JTextField textFieldMostrar) {
-		this.textFieldMostrar = textFieldMostrar;
+	public void setsP_Resultado(JScrollPane sP_Resultado) {
+		this.sP_Resultado = sP_Resultado;
 	}
 
-	public JLabel getLblBuscarNombre() {
-		return lblBuscarNombre;
+	public JList getList_Usuarios() {
+		return list_Usuarios;
 	}
 
-	public void setLblBuscarNombre(JLabel lblBuscarNombre) {
-		this.lblBuscarNombre = lblBuscarNombre;
+	public void setList_Usuarios(JList list_Usuarios) {
+		this.list_Usuarios = list_Usuarios;
 	}
 
-	public JButton getBtnEliminar() {
-		return btnEliminar;
+	public JButton getBtnEliminarUsuario() {
+		return btnEliminarUsuario;
 	}
 
-	public void setBtnEliminar(JButton btnEliminar) {
-		this.btnEliminar = btnEliminar;
+	public void setBtnEliminarUsuario(JButton btnEliminarUsuario) {
+		this.btnEliminarUsuario = btnEliminarUsuario;
 	}
 
 	public JButton getBtnCancelar() {
@@ -113,15 +119,4 @@ public class Vista_EliminarUsuario extends JFrame {
 	public void setBtnCancelar(JButton btnCancelar) {
 		this.btnCancelar = btnCancelar;
 	}
-	
-	
 }
-//w
-//{}
-//>
-//<
-//*
-//&&
-//||
-//[]
-//-

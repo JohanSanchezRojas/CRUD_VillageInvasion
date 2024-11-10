@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
 import CRUD_VillageInvasion.vista.Vista_ActualizarUsuario;
+import CRUD_VillageInvasion.vista.Vista_EliminarUsuario;
 import CRUD_VillageInvasion.vista.Vista_InsertarUsuario;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 import CRUD_VillageInvasion.vista.Vista_MostrarUsuario;
@@ -21,10 +22,12 @@ public class Controlador_MenuJuego implements ActionListener{
 	private Vista_InsertarUsuario vistaI;
 	private Vista_MostrarUsuario vistaM;
 	private Vista_ActualizarUsuario vistaA;
+	private Vista_EliminarUsuario vistaE;
 	
 	private Controlador_InsertarUsuario controladorI;
 	private Controlador_MostrarUsuario controladorM;
 	private Controlador_ActualizarUsuario controladorA;
+	private Controlador_EliminarUsuario controladorE;
 	
 	public Controlador_MenuJuego(DAO_Usuario modelo, Vista_MenuJuego vista) {
 		this.modelo = modelo;
@@ -60,6 +63,8 @@ public class Controlador_MenuJuego implements ActionListener{
 		}
 		
 		if (e.getSource() == vista.getjM_EliminarUsuario()) {
+			vistaE = new Vista_EliminarUsuario(vista);
+			controladorE = new Controlador_EliminarUsuario(vistaE, modelo);
 			System.out.println("Eliminar Usuario");
 		}
 		
