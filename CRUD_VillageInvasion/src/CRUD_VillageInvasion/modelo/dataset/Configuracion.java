@@ -1,6 +1,10 @@
 package CRUD_VillageInvasion.modelo.dataset;
 
-//Andrew Mora M
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Configuracion {
 	private String tipoEnemigos;
 	private int nivel;
@@ -122,5 +126,10 @@ public class Configuracion {
 				+ cantidadEnemigo1 + ", cantidadEnemigo2=" + cantidadEnemigo2 + ", cantidadEnemigo3=" + cantidadEnemigo3
 				+ ", vidasExtra=" + vidasExtra + ", velocidadJuego=" + velocidadJuego + ", arma=" + arma
 				+ ", aumentarDificultad=" + aumentarDificultad + "]";
+	}
+
+	public String toFileString() {// IMPORTANTE: DEFINIMOS EL FORMATO DE CADA REGISTRO SEPARADO POR -
+		return tipoEnemigos + "-" + nivel + "-" + cantidadEnemigo1 + "-" + cantidadEnemigo2 + "-" + cantidadEnemigo3
+				+ "-" + vidasExtra + "-" + velocidadJuego + "-" + arma + "-" + aumentarDificultad;
 	}
 }

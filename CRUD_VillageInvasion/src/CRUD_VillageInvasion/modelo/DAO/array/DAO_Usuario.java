@@ -7,6 +7,8 @@ import CRUD_VillageInvasion.modelo.dataset.ListaUsuarios;
 
 /**
  * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
  */
 public class DAO_Usuario implements IDAO_Usuario {
 	public static final String TIPO_NOMBRE = "NOMBRE";

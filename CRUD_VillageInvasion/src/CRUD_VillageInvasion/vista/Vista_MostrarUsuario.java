@@ -23,6 +23,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JList;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Vista_MostrarUsuario extends JDialog {
 	private JRadioButton rdbtnBuscarNombre;
 	private JRadioButton rdbtnBuscarNivel;

@@ -13,6 +13,11 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Vista_ConfirmarEliminacion extends JDialog {
 	private JLabel lblInformacionUsuario;
 	private JButton btnEliminarUsuario;

@@ -7,11 +7,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import CRUD_VillageInvasion.modelo.Usuario;
-import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
+import CRUD_VillageInvasion.modelo.DAO.archivoTexto.DAO_Usuario;
 import CRUD_VillageInvasion.vista.Vista_ActualizarUsuario;
 import CRUD_VillageInvasion.vista.Vista_CambiarContrasena;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Controlador_CambiarContrasena implements ActionListener {
 	private DAO_Usuario modelo;
 	private Vista_CambiarContrasena vista;

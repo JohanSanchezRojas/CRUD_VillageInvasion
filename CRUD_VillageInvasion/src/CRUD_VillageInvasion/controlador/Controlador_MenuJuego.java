@@ -3,8 +3,8 @@ package CRUD_VillageInvasion.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import CRUD_VillageInvasion.modelo.DAO.array.DAO_Configuracion;
-import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
+import CRUD_VillageInvasion.modelo.DAO.archivoTexto.DAO_Configuracion;
+import CRUD_VillageInvasion.modelo.DAO.archivoTexto.DAO_Usuario;
 import CRUD_VillageInvasion.vista.Vista_ActualizarUsuario;
 import CRUD_VillageInvasion.vista.Vista_Configuracion;
 import CRUD_VillageInvasion.vista.Vista_EliminarUsuario;
@@ -16,6 +16,8 @@ import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 
 /**
  * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
  */
 public class Controlador_MenuJuego implements ActionListener{
 	private DAO_Usuario modelo;

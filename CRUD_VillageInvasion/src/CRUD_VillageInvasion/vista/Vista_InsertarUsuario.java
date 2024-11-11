@@ -12,6 +12,11 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Vista_InsertarUsuario extends JDialog {
 	private JTextField tfNombre;
 	private JButton btnAceptar;

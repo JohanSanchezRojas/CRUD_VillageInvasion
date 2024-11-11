@@ -6,6 +6,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JButton;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Vista_MenuJuego extends JFrame {
 	private JMenuItem jM_InsertarUsuario;
 	private JMenuItem jM_MostrarUsuario;

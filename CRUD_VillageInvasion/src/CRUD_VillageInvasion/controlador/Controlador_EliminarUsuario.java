@@ -6,12 +6,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import CRUD_VillageInvasion.modelo.Usuario;
-import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
+import CRUD_VillageInvasion.modelo.DAO.archivoTexto.DAO_Usuario;
 import CRUD_VillageInvasion.vista.Vista_CambiarContrasena;
 import CRUD_VillageInvasion.vista.Vista_ConfirmarEliminacion;
 import CRUD_VillageInvasion.vista.Vista_EliminarUsuario;
 import CRUD_VillageInvasion.vista.Vista_MenuJuego;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Controlador_EliminarUsuario implements ActionListener {
 	private DAO_Usuario modelo;
 	

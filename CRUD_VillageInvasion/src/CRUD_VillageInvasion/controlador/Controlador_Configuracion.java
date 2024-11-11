@@ -5,9 +5,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import CRUD_VillageInvasion.modelo.DAO.array.DAO_Configuracion;
+import CRUD_VillageInvasion.modelo.DAO.archivoTexto.DAO_Configuracion;
 import CRUD_VillageInvasion.vista.Vista_Configuracion;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Controlador_Configuracion implements ActionListener {
 	private Vista_Configuracion vista;
 	private DAO_Configuracion modelo;

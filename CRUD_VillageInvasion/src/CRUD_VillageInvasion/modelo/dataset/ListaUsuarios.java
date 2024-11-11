@@ -3,7 +3,9 @@ package CRUD_VillageInvasion.modelo.dataset;
 import CRUD_VillageInvasion.modelo.Usuario;
 
 /**
+ * Johan David Sánchez Rojas C17305
  * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
  */
 public class ListaUsuarios {
 	private Usuario[] listaUsuarios;
@@ -28,6 +30,10 @@ public class ListaUsuarios {
 		this.listaUsuarios = listaUsuarios;
 	}
 
+	public Usuario getElemento(int index) {
+		return listaUsuarios[index];
+	}
+	
 	public void agregar(Usuario usuario) {
 		
 		if (usuario != null) {

@@ -6,12 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import CRUD_VillageInvasion.modelo.Usuario;
-import CRUD_VillageInvasion.modelo.DAO.array.DAO_Usuario;
+import CRUD_VillageInvasion.modelo.DAO.archivoTexto.DAO_Usuario;
 import CRUD_VillageInvasion.modelo.dataset.ListaUsuarios;
 import CRUD_VillageInvasion.vista.Vista_InsertarUsuario;
 
 /**
  * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
  */
 public class Controlador_InsertarUsuario implements ActionListener {
 	private Vista_InsertarUsuario vista;

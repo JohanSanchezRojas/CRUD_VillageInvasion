@@ -1,9 +1,10 @@
 package CRUD_VillageInvasion.modelo;
 
 /**
+ * Johan David Sánchez Rojas C17305
  * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
  */
-
 public class Usuario {
 	private String nombre;
 	private String contrasena;
@@ -21,6 +22,15 @@ public class Usuario {
 		sumaId++;
 	}
 
+	public Usuario() {
+		this.nombre = "";
+		this.contrasena = "";
+		this.nivel = 0;
+		this.puntaje = 0;
+		this.id = sumaId;
+		sumaId++;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,6 +63,10 @@ public class Usuario {
 		this.puntaje = puntaje;
 	}
 
+	public void setId(int púntaje) {
+		this.id = id;
+	}
+	
 	public int getId() {
 		return sumaId;
 	}
@@ -66,4 +80,8 @@ public class Usuario {
 		String hilera = "Nombre: " + nombre + ", Nivel: " + nivel + ", Puntaje: " + puntaje + ", Id: " + id + "\n" + contrasena;
 		return hilera;
 	}
+	
+	public String toFileString() {// IMPORTANTE: DEFINIMOS EL FORMATO DE CADA REGISTRO SEPARADO POR -
+		return nombre + "-" + contrasena + "-" + nivel + "-" + puntaje + "-" + id;
+    }
 }

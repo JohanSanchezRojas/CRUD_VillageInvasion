@@ -15,6 +15,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
+/**
+ * Johan David Sánchez Rojas C17305
+ * Joshua Chacón Alvarez C4E105
+ * Andrew Mora Mejia C05158
+ */
 public class Vista_EliminarUsuario extends JDialog {
 	private JTextField tfNombreUsuario;
 	private JButton btnBuscar;
