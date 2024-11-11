@@ -27,38 +27,34 @@ public class DAO_Usuario implements IDAO_Usuario {
 		switch (tipo) {
 		case TIPO_NOMBRE:
 			usuariosBusqueda[0] = lista.getUsuarioNom(dato);
-			
 			break;
+			
 		case TIPO_PUNTAJE:
 			int ptje = Integer.parseInt(dato);
 			usuariosBusqueda = lista.getUsuarioPtje(ptje);
-			
 			break;
+			
 		case TIPO_NIVEL:
 			int nvl = Integer.parseInt(dato);
 			usuariosBusqueda = lista.getUsuarioNvl(nvl);
-	
 			break;
 
 		default:
 			break;
 		}
 
-		
-	
 		return usuariosBusqueda;
 	}
 
 	@Override
 	public boolean eliminar(int id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	public ListaUsuarios getLista() {
 		return lista;
 	}
-
+	
 	public void setLista(ListaUsuarios lista) {
 		this.lista = lista;
 	}
@@ -67,7 +63,5 @@ public class DAO_Usuario implements IDAO_Usuario {
 		insertar(new Usuario("Pepe", "1234"));
 		insertar(new Usuario("Robertin", "1234"));
 		insertar(new Usuario("Bartolo", "1234"));
-		
-		
 	}
 }

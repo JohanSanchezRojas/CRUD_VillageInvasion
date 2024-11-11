@@ -27,7 +27,7 @@ public class Vista_MostrarUsuario extends JDialog {
 	private JRadioButton rdbtnBuscarNombre;
 	private JRadioButton rdbtnBuscarNivel;
 	private JRadioButton rdbtnBuscarPuntaje;
-	private ButtonGroup bGroup;
+	private ButtonGroup bG_Tipo;
 	private JButton btnBuscar;
 	private JButton btnMostrarUsuario;
 	private JButton btnCancelar;
@@ -80,10 +80,10 @@ public class Vista_MostrarUsuario extends JDialog {
 		rdbtnBuscarPuntaje.setBounds(468, 78, 72, 21);
 		getContentPane().add(rdbtnBuscarPuntaje);
 		
-		bGroup = new ButtonGroup();
-		bGroup.add(rdbtnBuscarNombre);
-		bGroup.add(rdbtnBuscarNivel);
-		bGroup.add(rdbtnBuscarPuntaje);
+		bG_Tipo = new ButtonGroup();
+		bG_Tipo.add(rdbtnBuscarNombre);
+		bG_Tipo.add(rdbtnBuscarNivel);
+		bG_Tipo.add(rdbtnBuscarPuntaje);
 
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(340, 117, 85, 21);
@@ -138,11 +138,11 @@ public class Vista_MostrarUsuario extends JDialog {
 	}
 
 	public ButtonGroup getbGroup() {
-		return bGroup;
+		return bG_Tipo;
 	}
 
 	public void setbGroup(ButtonGroup bGroup) {
-		this.bGroup = bGroup;
+		this.bG_Tipo = bGroup;
 	}
 	
 	public JButton getBtnBuscar() {
