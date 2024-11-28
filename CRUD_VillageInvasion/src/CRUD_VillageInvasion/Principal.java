@@ -22,7 +22,9 @@ public class Principal {
 		DAO_Usuario modelo = new DAO_Usuario();
 		DAO_Configuracion modeloC = new DAO_Configuracion();
 		
-		modelo.cargarDatosPrueba();
+//		modelo.cargarDatosPrueba();
+		
+		modelo.cargarDatos();
 		
 		Vista_MenuJuego vista = new Vista_MenuJuego();
 		

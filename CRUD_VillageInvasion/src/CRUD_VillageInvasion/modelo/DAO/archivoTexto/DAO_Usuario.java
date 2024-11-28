@@ -26,7 +26,7 @@ public class DAO_Usuario implements IDAO_Usuario {
     public void cargarDatos(){ // se agregar datos de prueba     
         try {
             reader.open(FILE_NAME);
-            reader.readUsuario();
+            reader.readAll();
             reader.close(); //importante cerrar el archivo
 
             System.out.println("Lectura exitosa");
@@ -54,6 +54,9 @@ public class DAO_Usuario implements IDAO_Usuario {
 	@Override
 	public boolean insertar(Usuario u) {
 		lista.agregar(u);
+		
+		guardarLista();
+		
 		return true;
 	}
 

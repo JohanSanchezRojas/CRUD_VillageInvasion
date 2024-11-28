@@ -59,6 +59,7 @@ public class DAO_Configuracion implements IDAO_Configuracion{
 		configuracion.setArma(arma);
 		configuracion.setAumentarDificultad(aumentarDificultad);
 		
+		
 		return true;
 	}
 	
